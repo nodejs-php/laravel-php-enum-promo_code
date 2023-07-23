@@ -5,6 +5,8 @@ namespace App\Enums;
 
 use App\Models\Promocode;
 use App\PromocodeConditions\PromocodeCondition;
+use App\PromocodeConditions\PriceCondition;
+use App\PromocodeConditions\LifetimeCondition;
 
 enum PromocodeConditions: string
 {

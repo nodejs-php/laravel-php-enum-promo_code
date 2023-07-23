@@ -17,4 +17,11 @@ class Promocode extends Model
         'active' => 'bool',
         'condition' => PromocodeConditionCast::class,
     ];
+
+    public function disable(): void
+    {
+        $this->active = false;
+
+        $this->save();
+    }
 }

@@ -10,11 +10,11 @@ enum PromocodeTypes: string
     case Percentage = 'percentage';
     case FixAmount = 'fix_amount';
 
-    public function createCouponType(Promocode $coupon): PromocodeType
+    public function createCouponType(Promocode $promocode): PromocodeType
     {
         return match ($this) {
-            self::FixAmount => new Amount($coupon),
-            self::Percentage => new Percentage($coupon),
+            self::FixAmount => new Amount($promocode),
+            self::Percentage => new Percentage($promocode),
         };
     }
 }

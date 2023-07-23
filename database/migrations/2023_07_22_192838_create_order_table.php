@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->float('total_price');
             $table->float('discount_price');
-            $table->float('final_value');
+            $table->float('final_price');
             $table->foreignIdFor(Promocode::class)->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });

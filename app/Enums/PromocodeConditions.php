@@ -11,7 +11,7 @@ enum PromocodeConditions: string
     case Price = 'price';
     case Lifetime = 'lifetime';
 
-    public function createCouponCondition(Promocode $promocode): PromocodeCondition
+    public function createPromocodeCondition(Promocode $promocode): PromocodeCondition
     {
         return match ($this) {
             self::Price => new PriceCondition($promocode),

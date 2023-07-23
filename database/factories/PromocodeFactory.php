@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\PromocodeTypes;
+use App\ValueObject\PromocodeCondition;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,15 @@ class PromocodeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'code' => $this->faker->word(),
+            'discount' => rand(1, 10) * 10 - 1,
+            'type' => collect(PromocodeTypes::cases())->random(),
+            'expires_at' => now()->addDays(7),
+            'active' => true,
+            'condition' => PromocodeCondition::fromArray([
+                'type' => 'price',
+                'value' => 22,
+            ]),
         ];
     }
 }

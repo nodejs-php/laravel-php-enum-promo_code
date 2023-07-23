@@ -9,10 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApplyPromocodeController extends Controller
 {
-    public function __invoke(Order $order, Promocode $coupon, ApplyPromocodeException $applyPromocode)
+    public function __invoke(Order $order, Promocode $promocode, ApplyPromocodeException $applyPromocode)
     {
         try {
-            $applyPromocode->execute($coupon, $order);
+            $applyPromocode->execute($promocode, $order);
         } catch (ApplyPromocodeException) {
             abort(Response::HTTP_UNPROCESSABLE_ENTITY);
         }

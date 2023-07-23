@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Coupon;
+use App\Models\Promocode;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +19,14 @@ class OrderFactory extends Factory
      */
     public function definition(): array
     {
+        $price = rand(20, 100) * 10 - 1;
+        $discount = rand(5, 15) * 10 - 1;
+
         return [
-            //
+            'total_price' => $price,
+            'discount_price' => $discount,
+            'final_price' =>  max($price - $discount, 0),
+            'promocode_id' => Promocode::factory(),
         ];
     }
 }
